@@ -1,0 +1,15 @@
+# Bootstrap unit: enabled by a static symlink in
+# multi-user.target.wants/ so it runs on the first boot of every deployment.
+# Self-gates via the stamp file. Opt out: systemctl mask.
+[Unit]
+Description=Sirius OS: provision Proton VPN runtime configuration
+ConditionPathExists=!/var/lib/sirius-protonvpn/provisioned
+After=NetworkManager.service local-fs.target
+Wants=NetworkManager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sirius/sirius-protonvpn-provision.sh
+RemainAfterExit=no
+StandardOutput=journal
+StandardError=journal

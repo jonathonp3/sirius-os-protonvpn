@@ -1,0 +1,14 @@
+[Unit]
+Description=Sirius OS: provision Proton VPN uninstaller
+After=local-fs.target
+# Only run if the uninstaller has not been created yet
+ConditionPathExists=!/etc/systemd/system/sirius-protonvpn-uninstall.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/libexec/sirius/sirius-protonvpn-uninstall-provision.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
