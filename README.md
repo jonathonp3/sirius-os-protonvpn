@@ -191,3 +191,7 @@ the first boot after the package is removed.
 License
 
 MIT
+
+This project is built and hosted via [Fedora COPR](https://copr.fedorainfracloud.org/coprs/jonathonp3/sirius-os-protonvpn/).
+
+Part of the [Sirius Provisioning Framework](https://github.com/jonathonp3/sirius-provisioning-framework).
